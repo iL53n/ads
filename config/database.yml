@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+  host: localhost
+  username: postgres
+
+development:
+  <<: *default
+  database: ads_development
+
+#test:
+#  <<: *default
+#  database: ads_test
+#
+#production:
+#  <<: *default
+#  database: ads_production
+#  username: ads
+#  password: <%= ENV['ADS_DATABASE_PASSWORD'] %>
