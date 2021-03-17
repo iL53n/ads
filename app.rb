@@ -1,5 +1,9 @@
 require "sinatra"
 
 get "/" do
-  erb :index
+  # all ads
+end
+
+post "/abs" do
+  # create new ad
 end
