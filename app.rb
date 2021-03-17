@@ -1,3 +1,6 @@
+# Todo: change the structure of the app
+# Todo: add require_all
+
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'fast_jsonapi'
@@ -22,6 +25,9 @@ get "/" do
 end
 
 post "/ads" do
+  # Todo: add user_id in params
+  # from HW: 'Вместо токена пользователя при создании объявления передавайте явный `user_id` гипотетического пользователя.'
+  # Todo: add strong params [:title, :description, :city]
   ad = Ad.new(params)
 
   if ad.save
@@ -30,6 +36,7 @@ post "/ads" do
     body serializer.serialized_json
     status 201
   else
-    halt 422, "You can't save new ad"
+    body "You can't save new ad"
+    halt 422
   end
 end
