@@ -1,9 +1,14 @@
-require "sinatra"
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'pg'
+
+current_dir = Dir.pwd
+Dir["#{current_dir}/models/*.rb"].each { |file| require file }
 
 get "/" do
-  # all ads
+  @ads = Ad.all.to_json
 end
 
 post "/abs" do
-  # create new ad
+  @ad = Ad.create(params[:title, :description, :city])
 end
