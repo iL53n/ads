@@ -12,13 +12,11 @@ class AdsController < ApplicationController
   end
 
   post "/ads" do
-    # Todo: add user_id in params
-    # from HW: 'Вместо токена пользователя при создании объявления передавайте явный `user_id` гипотетического пользователя.'
-    # Todo: add strong params [:title, :description, :city]
-    ad = Ad.new(params)
+    # not sure about send the user, maybe I didn't right understand the task
+    result = CreateAdService.call(ad: params, user: User.find(1))
 
-    if ad.save
-      serializer = AdSerializer.new(ad)
+    if result.success?
+      serializer = AdSerializer.new(result.ad)
 
       body serializer.serialized_json
       status 201
