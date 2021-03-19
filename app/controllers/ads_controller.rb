@@ -1,11 +1,13 @@
 class AdsController < ApplicationController
+  include PaginationLinks
+
   before do
     content_type :json
   end
 
   get "/" do
-    ads = Ad.order(updated_at: :desc)
-    serializer = AdSerializer.new(ads)
+    ads = Ad.order(updated_at: :desc).page(params[:page])
+    serializer = AdSerializer.new(ads, links: pagination_links(ads))
 
     body serializer.serialized_json
     status 200
