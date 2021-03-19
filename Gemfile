@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.7.0'
 
 # by alphabet
+gem 'bcrypt', '~> 3.1'
 gem 'dry-initializer', '~> 3.0'
 gem 'fast_jsonapi', '~> 1.5'
 gem 'pg', '~> 1.2'
