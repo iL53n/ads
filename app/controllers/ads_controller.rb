@@ -23,8 +23,10 @@ class AdsController < ApplicationController
       body serializer.serialized_json
       status 201
     else
-      body "You can't save new ad"
-      halt 422
+      errors = ErrorSerializer.error_response(result.ad)
+
+      body errors
+      status 422
     end
   end
 end
