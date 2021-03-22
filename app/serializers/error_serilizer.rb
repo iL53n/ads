@@ -10,8 +10,10 @@ module ErrorSerializer
   def build_errors(errors)
     errors.map do |e|
       {
-        source: { pointer: "/data/attributes/#{e.attribute}" },
-        detail: e.full_message
+        detail: e.full_message,
+        source: {
+          pointer: "/data/attributes/#{e.attribute}"
+        }
       }
     end
   end
