@@ -13,3 +13,9 @@ gem 'require_all', '~> 3.0'
 gem 'sinatra', '~> 2.1'
 gem 'sinatra-activerecord', '~> 2.0'
 gem 'sinatra-contrib', '~> 2.1'
+
+group :test do
+  gem 'factory_bot', '~> 6.1'
+  gem 'rack-test', '~> 1.1'
+  gem 'rspec', '~> 3.10'
+end
