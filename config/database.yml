@@ -8,10 +8,10 @@ development:
   <<: *default
   database: ads_development
 
-#test:
-#  <<: *default
-#  database: ads_test
-#
+test:
+  <<: *default
+  database: ads_test
+
 #production:
 #  <<: *default
 #  database: ads_production
