@@ -15,7 +15,7 @@ class AdsController < ApplicationController
 
   post "/ads" do
     # not sure about send the user, maybe I didn't right understand the task
-    result = CreateAdService.call(ad: params, user: User.find(1))
+    result = CreateAdService.call(ad: params, user: User.first)
 
     if result.success?
       serializer = AdSerializer.new(result.ad)

@@ -4,6 +4,6 @@ module RequestHelpers
   end
 
   def response_body
-    JSON(response.body)
+    JSON(last_response.body)
   end
 end
