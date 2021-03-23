@@ -35,7 +35,7 @@ RSpec.describe AdsController, type: :request do
       end
 
       it 'returns an error' do
-        post '/ads', params: { ad: ad_params }
+        post '/ads', ad_params
 
         expect(last_response.status).to eq(422)
         expect(response_body['errors']).to include(
@@ -50,6 +50,7 @@ RSpec.describe AdsController, type: :request do
     end
 
     context 'valid parameters' do
+      let(:user) { create(:user) }
       let(:ad_params) do
         {
           title: 'Ad title',
@@ -61,14 +62,14 @@ RSpec.describe AdsController, type: :request do
       let(:last_ad) { Ad.last }
 
       it 'creates a new ad' do
-        expect { post '/ads', params: { ad: ad_params } }
+        expect { post '/ads', ad_params, user: user }
           .to change { Ad.count }.from(0).to(1)
 
         expect(last_response.status).to eq(201)
       end
 
       it 'returns an ad' do
-        post '/ads', params: { ad: ad_params }
+        post '/ads', ad_params, user: user
 
         expect(response_body['data']).to a_hash_including(
                                            'id' => last_ad.id.to_s,

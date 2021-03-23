@@ -12,7 +12,10 @@ class CreateAdService
   attr_reader :ad
 
   def call
-    @ad = @user.ads.new(@ad.to_h)
+    @ad = ::Ad.new(@ad.to_h)
+    @ad.user = @user
+
+    # @ad = @user.ads.new(@ad.to_h)
     fail!(@ad.errors) unless @ad.save
   end
 end
