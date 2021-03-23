@@ -1,4 +1,6 @@
 RSpec.describe CreateAdService do
+  subject { described_class }
+
   let(:user) { create(:user) }
 
   context 'valid parameters' do
