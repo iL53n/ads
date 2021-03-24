@@ -18,7 +18,6 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    bcrypt (3.1.16)
     builder (3.2.4)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
@@ -112,7 +111,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (~> 3.1)
   database_cleaner-active_record (~> 2.0)
   dry-initializer (~> 3.0)
   factory_bot (~> 6.1)

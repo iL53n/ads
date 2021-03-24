@@ -4,9 +4,9 @@ class CreateAds < ActiveRecord::Migration[6.1]
       t.string :title, null: false
       t.text :description, null: false
       t.string :city, null: false
+      t.bigint :user_id, null: false
       # t.float :lat
       # t.float :lon
-      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end

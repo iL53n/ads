@@ -2,7 +2,7 @@ module ErrorSerializer
   extend self
 
   def error_response(object)
-    { errors: build_errors(object.errors) }.to_json
+    { errors: build_errors(object.errors) }
   end
 
   private

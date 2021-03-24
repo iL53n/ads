@@ -7,13 +7,13 @@ class CreateAdService
     option :city
   end
 
-  option :user
+  option :user_id
 
   attr_reader :ad
 
   def call
     @ad = ::Ad.new(@ad.to_h)
-    @ad.user = @user
+    @ad.user_id = @user_id
 
     # @ad = @user.ads.new(@ad.to_h)
     fail!(@ad.errors) unless @ad.save

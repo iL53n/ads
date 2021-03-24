@@ -1,7 +1,7 @@
 RSpec.describe CreateAdService do
   subject { described_class }
 
-  let(:user) { create(:user) }
+  let(:user_id) { 99 }
 
   context 'valid parameters' do
     let(:ad_params) do
@@ -13,12 +13,12 @@ RSpec.describe CreateAdService do
     end
 
     it 'creates a new ad' do
-      expect { subject.call(ad: ad_params, user: user) }
+      expect { subject.call(ad: ad_params, user_id: user_id) }
         .to change { Ad.count }.from(0).to(1)
     end
 
     it 'assigns ad' do
-      result = subject.call(ad: ad_params, user: user)
+      result = subject.call(ad: ad_params, user_id: user_id)
 
       expect(result.ad).to be_kind_of(Ad)
     end
@@ -34,12 +34,12 @@ RSpec.describe CreateAdService do
     end
 
     it 'does not create ad' do
-      expect { subject.call(ad: ad_params, user: user) }
+      expect { subject.call(ad: ad_params, user_id: user_id) }
         .not_to change { Ad.count }
     end
 
     it 'assigns ad' do
-      result = subject.call(ad: ad_params, user: user)
+      result = subject.call(ad: ad_params, user_id: user_id)
 
       expect(result.ad).to be_kind_of(Ad)
     end

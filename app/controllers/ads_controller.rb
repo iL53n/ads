@@ -14,8 +14,10 @@ class AdsController < ApplicationController
   end
 
   post "/ads" do
-    # not sure about send the user, maybe I didn't right understand the task
-    result = CreateAdService.call(ad: params, user: User.first)
+    result = CreateAdService.call(
+      ad: params,
+      user_id: 99
+    )
 
     if result.success?
       serializer = AdSerializer.new(result.ad)
@@ -23,8 +25,9 @@ class AdsController < ApplicationController
       body serializer.serialized_json
       status 201
     else
+      # Todo: improve, add ApiErrors module
       errors = ErrorSerializer.error_response(result.ad)
-
+                              .to_json
       body errors
       status 422
     end
