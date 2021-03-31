@@ -1,2 +1,3 @@
-require 'sinatra/activerecord'
-require 'sinatra/activerecord/rake'
+ENV['RACK_ENV'] ||= 'development'
+
+Rake.add_rakelib('rakelib/**')
