@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module ApplicationLoader
   extend self
 
@@ -13,16 +11,18 @@ module ApplicationLoader
   private
 
   def init_config
-    require_file 'config/initializer/config'
+    require_file 'config/initializers/config'
   end
 
   def init_db
-    require_file 'config/initializer/db'
+    require_file 'config/initializers/db'
   end
 
   def require_app
+    require_dir 'app/helpers'
     require_file 'config/application'
     require_file 'app/services/basic_service'
+    require_dir 'app/contracts'
     require_dir 'app'
   end
 
@@ -35,8 +35,8 @@ module ApplicationLoader
   end
 
   def require_dir(path)
-    dir_path = File.join(root, path)
-    Dir["#{dir_path}/**/*.rb"].sort.each { |file| require file }
+    path = File.join(root, path)
+    Dir["#{path}/**/*.rb"].each { |file| require file }
   end
 
   def root
