@@ -4,14 +4,26 @@ module ApplicationLoader
   extend self
 
   def load_app!
+    init_config
+    init_db
     require_app
     init_app
   end
 
   private
 
+  def init_config
+    require_file 'config/initializer/config'
+  end
+
+  def init_db
+    require_file 'config/initializer/db'
+  end
+
   def require_app
     require_file 'config/application'
+    require_file 'app/services/basic_service'
+    require_dir 'app'
   end
 
   def init_app

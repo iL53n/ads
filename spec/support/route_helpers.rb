@@ -1,4 +1,4 @@
-module RequestHelpers
+module RouteHelpers
   def app
     described_class
   end
