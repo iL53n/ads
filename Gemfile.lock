@@ -127,4 +127,4 @@ DEPENDENCIES
   sinatra-contrib (~> 2.0.0)
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
