@@ -1,7 +1,8 @@
-RSpec.describe CreateAdService do
+
+RSpec.describe Ads::CreateService do
   subject { described_class }
 
-  let(:user_id) { 99 }
+  let(:user_id) { 101 }
 
   context 'valid parameters' do
     let(:ad_params) do

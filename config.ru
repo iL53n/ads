@@ -1,4 +1,5 @@
-require_relative './config/environment'
+require_relative 'config/environment'
 
-use AdsController
-run ApplicationController
+map '/ads' do
+  run AdRoutes
+end
