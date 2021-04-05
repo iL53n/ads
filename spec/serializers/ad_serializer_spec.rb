@@ -17,8 +17,6 @@ RSpec.describe AdSerializer do
         title
         description
         city
-        lat
-        lon
       ].include?(attr)
     end
   end

@@ -1,4 +1,5 @@
 require 'sinatra/extension'
+require_relative 'validations'
 
 module ApiErrors
   extend Sinatra::Extension
@@ -29,5 +30,10 @@ module ApiErrors
   error Validations::InvalidParams, KeyError do
     status 422
     error_response I18n.t(:missing_parameters, scope: 'api.errors')
+  end
+
+  error Auth::Unauthorized do
+    status 403
+    error_response I18n.t(:unauthorized, scope: 'api.errors')
   end
 end
