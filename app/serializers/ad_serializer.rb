@@ -3,7 +3,7 @@ class AdSerializer
 
   attributes :title,
              :description,
-             :city
-             # :lat,
-             # :lon
+             :city,
+             :lat,
+             :lon
 end
