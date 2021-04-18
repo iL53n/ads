@@ -1,5 +1,5 @@
 class AdRoutes < Application
-  helpers PaginationLinks, Auth, Geocoding
+  helpers PaginationLinks, Auth
 
   namespace '/v1' do
     get do
@@ -18,8 +18,6 @@ class AdRoutes < Application
         ad: ad_params[:ad],
         user_id: user_id
       )
-
-      set_coordinates!(result.ad)
 
       if result.success?
         serializer = AdSerializer.new(result.ad)
