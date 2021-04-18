@@ -16,7 +16,7 @@ Sinatra microservice
 1. Clone repo:
 
 ```
-git clone https://github.com/iL53n/ads-microservice && cd auth-microservice
+git clone https://github.com/iL53n/ads-microservice && cd ads-microservice
 ```
 
 2. Install dependencies and create db:
@@ -24,10 +24,10 @@ git clone https://github.com/iL53n/ads-microservice && cd auth-microservice
 ```
 bundle install
 
-createdb -h localhost -U postgres auth_microservice_development
+createdb -h localhost -U postgres ads_microservice_development
 bin/rake db:migrate
 
-createdb -h localhost -U postgres auth_microservice_test
+createdb -h localhost -U postgres ads_microservice_test
 RACK_ENV=test bin/rake db:migrate
 ```
 
