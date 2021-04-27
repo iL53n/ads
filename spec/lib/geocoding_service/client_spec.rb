@@ -1,5 +1,5 @@
-RSpec.describe GeocodingService::Client, type: :client do
-  subject { described_class.new(connection: connection) }
+# RSpec.describe GeocodingService::Client, type: :client do
+#   subject { described_class.new(connection: connection) }
 
   # Todo: add tests
   # let(:status) { 200 }
@@ -33,4 +33,4 @@ RSpec.describe GeocodingService::Client, type: :client do
   #     expect(subject.geocode(nil)).to be_nil
   #   end
   # end
-end
+# end
