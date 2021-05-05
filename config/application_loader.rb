@@ -5,6 +5,7 @@ module ApplicationLoader
     init_config
     init_db
     require_app
+    init_logger
     init_app
   end
 
@@ -25,6 +26,10 @@ module ApplicationLoader
     require_file 'app/services/basic_service'
     require_dir 'app/contracts'
     require_dir 'app'
+  end
+
+  def init_logger
+    require_file 'config/initializers/logger'
   end
 
   def init_app
