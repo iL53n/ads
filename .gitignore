@@ -1,1 +1,10 @@
+# Ignore IDE files
 .idea
+
+# Ignore logfiles
+/log/*
+!/log/.keep
+
+# Ignore local config files
+config/settings.local.yml
+config/*.local.yml
