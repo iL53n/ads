@@ -10,7 +10,7 @@ queue.subscribe(manual_ack: true) do |delivery_info, properties, payload|
   Ads::UpdateService.call(payload['id'], lat: lat, lon: lon)
 
   Application.logger.info(
-    'update ad coordinates',
+    'ad coordinates have been updated',
     payload
   )
 
