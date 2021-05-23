@@ -1,7 +1,7 @@
 module RabbitMQ
   extend self
 
-  @mutext = Mutex.new
+  @mutex = Mutex.new
 
   def connection
     @mutex.synchronize do
